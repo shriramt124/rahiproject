@@ -4,19 +4,20 @@ const app = express()
 import express from "express"
 import dbConnect from "./utils/dbConnect.js"
 import userRouter from "./routes/userRouter.js"
+import cors from "cors"
 
 
-
+app.use(cors({
+    origin: 'http://localhost:5173', // Allow requests from example.com
+    methods: ['GET', 'POST','PUT'], // Allow only GET and POST requests
+    credentials: true, // Allow sending cookies and authorization headers
+  }));
 app.use(express.json())//helps in parsing the req.body data in req and res objects
-//app.use(cors())//cross origin request to frontend
-app.use(express.urlencoded({extended:true}))
-
+ 
 app.get("/",function(req,res){
     res.send("hello world")
 })
-console.log(process.env.CLOUDINARY_KEY)
-console.log(process.env)
-
+ 
 app.use("/api/menue",userRouter);
 
  
