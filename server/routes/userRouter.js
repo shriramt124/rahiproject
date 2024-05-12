@@ -1,14 +1,18 @@
 import express from "express"
+import multer from "multer";
 const userRouter = express.Router()
 import Menue from "../models/menue.js";
+import storage from "../utils/cloudinary.js";
+
+const upload = multer({storage})
 
 
-
-userRouter.post("/upload-menue",async function(req,res){
+userRouter.post("/upload-menue",upload.single("file"),async function(req,res){
     //get the title desc and price from req.body
     const {title,description,price} = req.body;
+    console.log(req.file)
     try {
-        if(!title ||!description || !price){
+        if(!title ||!description || !price || !req.file){
             res.status(401).json({
                 status:false,
                 message:"all fields are required"
@@ -17,7 +21,7 @@ userRouter.post("/upload-menue",async function(req,res){
         //check if the title is alredy present
         const existingMenue = await Menue.findOne({title});
         if(existingMenue){
-            res.status(401).json({
+         return   res.status(401).json({
                 status:false,
                 message:"the menue is already present"
             })
@@ -26,7 +30,8 @@ userRouter.post("/upload-menue",async function(req,res){
         const newMenue = await  Menue.create({
             title:title,
             description:description,
-            price:price
+            price:price,
+            image:req.file.path
         })
         res.status(201).json({
             status:true,
@@ -38,7 +43,8 @@ userRouter.post("/upload-menue",async function(req,res){
     } catch (error) {
         res.status(500).json({
             status:false,
-            messgae:error.message
+            messgae:error.message,
+            stack:error.message
         })
     }
 })

@@ -1,17 +1,21 @@
 import dotenv from "dotenv"
+dotenv.config();
+const app = express()
 import express from "express"
 import dbConnect from "./utils/dbConnect.js"
-const app = express()
 import userRouter from "./routes/userRouter.js"
 
 
-dotenv.config();
+
 app.use(express.json())//helps in parsing the req.body data in req and res objects
 //app.use(cors())//cross origin request to frontend
+app.use(express.urlencoded({extended:true}))
 
 app.get("/",function(req,res){
     res.send("hello world")
 })
+console.log(process.env.CLOUDINARY_KEY)
+console.log(process.env)
 
 app.use("/api/menue",userRouter);
 
