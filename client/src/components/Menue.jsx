@@ -1,39 +1,78 @@
 import MenuePic from "/nmenuePic.jpeg";
-import "./Menue.css";
+ import "./Menue.css";
+import { Link } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
  
 function Menue() {
   return (
-    <div className="wrapper relative">
-      <div className="heading text-center text-5xl my-8 bg-red-300 p-2 uppercase">
+    <div className="menue-wrapper">
+      <div className="menue-heading">
         <h1>Menue</h1>
-      </div>
-      <div className="links">
-        <ul className="flex justify-center gap-6 text-xl bg-red-300 p-2 my-10 ">
+      </div> 
+      <div className="menue-links">
+        <ul className="links">
           <li>Lunch</li>
           <li>Dinner</li>
           <li>wine list</li>
         </ul>
       </div>
-      <div className="menue-list-wrapper flex flex-wrap w-full items-center gap-2 justify-center bg-green-300 p-2">
-        <div className="menue-item  w-[100%] sm:w-[350px] md:w-[450px] sm:flex-col flex gap-3 bg-red-200 p-2 relative">
-          <div className="image w-[50%] sm:w-[100%] ">
+      <div className="menue-card-wrapper">
+        <div className="menue-card">
+          <div className="menue-image">
             <img src={MenuePic} alt="" />
           </div>
-          <div className="descriptions w-[50%] sm:w-[100%] felx flex-col">
-            <h2 className="title text-xl font-semibold">Chicken Parmesan</h2>
-            <p className="desc">
+          <div className="menue-content">
+            <h2 className="menue-content-heading">Chicken Parmesan</h2>
+            <p className="menue-content-desc">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit.
               Voluptate, atque!
             </p>
-            <div className="order-links flex justify-start gap-4 p-2">
-              <p className="text-xl font-bold">0</p>
-              <button className="text-xl font-bold bg-blue-400 w-[50px] rounded-full">
+            <div className="menue-content-footer">
+              <p className="menue-content-price"> <span>Rs.</span> 0</p>
+              <button className="menue-add-button">
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="menue-card">
+          <div className="menue-image">
+            <img src={MenuePic} alt="" />
+          </div>
+          <div className="menue-content">
+            <h2 className="menue-content-heading">Chicken Parmesan</h2>
+            <p className="menue-content-desc">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptate, atque!
+            </p>
+            <div className="menue-content-footer">
+              <p className="menue-content-price"> <span>Rs.</span>200</p>
+              <button className="menue-add-button">
+                +
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="menue-card">
+          <div className="menue-image">
+            <img src={MenuePic} alt="" />
+          </div>
+          <div className="menue-content">
+            <h2 className="menue-content-heading">Chicken Parmesan</h2>
+            <p className="menue-content-desc">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptate, atque!
+            </p>
+            <div className="menue-content-footer">
+              <p className="menue-content-price"> <span>Rs.</span> 0</p>
+              <button className="menue-add-button">
                 +
               </button>
             </div>
           </div>
         </div>
       </div>
+  
     </div>
   );
 }
