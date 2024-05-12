@@ -1,0 +1,42 @@
+.cart-wrapper{
+    min-height:100vh;
+    background-color: white;
+ display: flex;
+ flex-direction: column;
+ gap:10px;
+ align-items: center;
+}
+.cart-heading{
+    text-align: center;
+    text-transform: capitalize;
+    margin: 10px 0 20px 0 ;
+}
+ .cart-items{
+    display: flex;
+    background-color: rgb(202, 216, 226);
+    padding:5px;
+    justify-content: space-between;
+    gap:5px;
+    width:95%;
+    align-items: center;
+
+ }
+ .price-item{
+    display: flex;
+    gap:15px;
+    justify-content: center;
+    align-items: center;
+ }
+ .quantity-controller{
+    display: flex;
+    gap:5px;
+    justify-content: center;
+    align-items: center;
+ }
+ .quantity-controller button{
+    width:30px;
+    border-radius: 5px;
+    background-color: green;
+    border:none;
+    color:white;
+ }
