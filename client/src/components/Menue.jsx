@@ -2,10 +2,14 @@ import "./Menue.css";
 import { useEffect, useState } from "react";
 import { addToCart } from "../store/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
-function Menue() {
+import { Link } from "react-router-dom";
+import { FaShoppingCart } from "react-icons/fa";
+function Menue({totalPrice,setTotalPrice}) {
+   
+  const dispatch = useDispatch();
   const cartItems = useSelector(state => state.cart.items);
   console.log(cartItems)
- const dispatch = useDispatch()
+  
   const [data, setData] = useState();
  
   const fetchMenue = async () => {
@@ -17,6 +21,8 @@ function Menue() {
 const handleAdd = (item)=>{
      
       dispatch(addToCart(item));
+      setTotalPrice(prev => prev + Number(item.price));
+
 
 }
  
@@ -60,6 +66,10 @@ const handleAdd = (item)=>{
             </div>
           ))}
       </div>
+      <Link to="/cart" className="cart-icon" >
+        {" "}
+        <FaShoppingCart size={40}  />
+      </Link>
     </div>
   );
 }

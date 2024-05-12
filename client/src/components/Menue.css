@@ -31,7 +31,7 @@
  
 .menue-card{
   
-    background-color: rgb(76, 82, 87);
+    background-color: rgb(172, 213, 247);
     display: flex;
     gap:10px;
     padding:5px;
@@ -79,7 +79,7 @@
  
 
 .menue-add-button{
-    background-color: red;
+    background-color: brown;
     padding:5px;
     width:50px;
     border:none;
@@ -92,4 +92,9 @@
 .menue-content-price{
  text-align: center;
 }
- 
+ .cart-icon{
+    position: fixed;
+    bottom:10px;
+    left:10px;
+    color:brown;
+ }

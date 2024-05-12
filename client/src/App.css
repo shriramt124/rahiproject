@@ -8,10 +8,14 @@
     min-height:100vh;
     position: relative;
  }
- .cart-icon{
-   position: absolute;
-   right:10px;
-   
-   bottom:10px;
+  .checkOut{
+   background: linear-gradient(to right,rgb(189, 189, 231),white);
+  }
+  .checkOut .total-price{
+   font-size:bold;
+   font-size:22px;
+  }
+  .checkOut .check-out-button{
+   font-size:22px;
    
   }
