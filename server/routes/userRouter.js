@@ -68,3 +68,23 @@ userRouter.get("/all-menue", async function (req, res) {
 })
 
 export default userRouter;
+
+
+//router to delete the menue 
+userRouter.delete("/delete/:id",async(req,res,next)=>{
+    const id = req.params.id;
+    try {
+       const found = await Menue.findByIdAndDelete(id);
+       return res.status(200).json({
+        status:true,
+        message:"Menue deleted Successfully"
+       })
+
+    } catch (error) {
+      return  res.status(500).json({
+            status: false,
+            message: error.message,
+            stack: error.stack
+        })
+    }
+})
