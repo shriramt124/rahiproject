@@ -98,3 +98,13 @@
     left:10px;
     color:brown;
  }
+  .admin-button{
+    position: absolute;
+    top:5px;
+    right:5px;
+    padding:5px;
+    border:none;
+    background-color: rgb(131, 228, 131);
+    border-radius: 5px;
+    
+  }

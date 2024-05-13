@@ -1,0 +1,45 @@
+.wrapper{
+    background-color: rgb(163, 237, 163);
+    padding:10px;
+    border-radius: 5px;
+    width:100%;
+}
+.wrapper input{
+    background:transparent;
+    border:none;
+    padding:5px;
+    width:95%;
+    outline: none;
+    text-transform: capitalize;
+    font-size:20px;
+
+}
+.wrapper textarea{
+    width:100%;
+    padding:5px;
+    text-transform: capitalize;
+    font-size:18px;
+}
+form button{
+    width:90%;
+    background-color:aqua;
+    padding:10px;
+    border:none;
+    border-radius: 10px;;
+    font-size:22px;
+
+    margin:auto;
+}
+form button:hover{
+    cursor: pointer;
+    opacity: 0.8;
+    color:white;
+    background-color: rgb(88, 237, 88);
+
+}
+form{
+    background-color:rgb(4, 80, 4);
+}
+
+     
+ 

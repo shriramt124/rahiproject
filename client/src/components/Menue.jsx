@@ -2,18 +2,19 @@ import "./Menue.css";
 import { useEffect, useState } from "react";
 import { addToCart } from "../store/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { nanoid } from "nanoid";
 function Menue({ totalPrice, setTotalPrice }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const cartItems = useSelector((state) => state.cart.items);
   console.log(cartItems);
 
   const [data, setData] = useState();
 
   const fetchMenue = async () => {
-    const res = await fetch("http://localhost:3000/api/menue/all-menue");
+    const res = await fetch("http://localhost:3000/api/menue/all-menue");//data aa raha hai 
     const data = await res.json();
     console.log("response", data.data);
     setData(data.data);
@@ -23,6 +24,11 @@ function Menue({ totalPrice, setTotalPrice }) {
     setTotalPrice((prev) => prev + Number(item.price));
   };
 
+ const handleAdminClick = ()=>{
+       navigate("/form-add");
+       
+ }
+
   useEffect(() => {
     fetchMenue();
   }, []);
@@ -31,12 +37,14 @@ function Menue({ totalPrice, setTotalPrice }) {
     <div className="menue-wrapper">
       <div className="menue-heading">
         <h1>Menue</h1>
+        <button className="admin-button" onClick={handleAdminClick}>Admit</button>
       </div>
       <div className="menue-links">
         <ul className="links">
-          <li>Lunch</li>
-          <li>Dinner</li>
-          <li>wine list</li>
+          <li>Coffee</li>
+          <li>Sweets</li>
+          <li>fast foods</li>
+          <li>General</li>
         </ul>
       </div>
       <div className="menue-card-wrapper">
