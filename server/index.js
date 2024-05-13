@@ -9,7 +9,7 @@ import cors from "cors"
 
 app.use(cors({
     origin: 'http://localhost:5173', // Allow requests from example.com
-    methods: ['GET', 'POST','PUT'], // Allow only GET and POST requests
+    methods: ['GET', 'POST','PUT','DELETE'], // Allow only GET and POST  and DELETE requests
     credentials: true, // Allow sending cookies and authorization headers
   }));
 app.use(express.json())//helps in parsing the req.body data in req and res objects

@@ -1,11 +1,16 @@
 import { useState } from "react";
 import "./AddMenueForm.css";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+ 
  
 
 const AddMenueForm = () => {
     const navigate  = useNavigate()
+    const [error,setError] = useState("");
+     const [loading,setIsLoading] = useState(false);
+
+
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -30,7 +35,13 @@ const AddMenueForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    //want to show the loading icon
+    
+        
     try {
+        setError(false);
+        setIsLoading(true);
+        
       if (
         (formData.title === "" ||
           formData.description === "" ||
@@ -52,15 +63,25 @@ const AddMenueForm = () => {
         formData1
       );
          if(response.data.data){
-            alert("item added successfully");
-          navigate("/");
-          
+            setIsLoading(false);
+               navigate("/");
+           
+
          }
+
     } catch (error) {
-      console.log(error);
+       setError(true);
     }
   };
   console.log(formData);
+  if(error === true){
+    alert("item added failed please try again");
+    navigate("/form-add");
+
+  }
+  if(loading === true){
+    return <div style={{fontSize:"30px",textAlign:"center"}}>Please wait...</div>
+  }
   return (
     <div
       className="add-menue-wrapper"
@@ -131,7 +152,7 @@ const AddMenueForm = () => {
             margin: "10px",
           }}
         >
-          show all items
+         <Link to="/admin-items" >show all items</Link>  
         </div>
       </form>
     </div>

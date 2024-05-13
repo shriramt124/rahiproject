@@ -8,12 +8,9 @@ const upload = multer({ storage })
 
 
 userRouter.post("/upload-menue", upload.single("file"), async function (req, res) {
-    //get the title desc and price from req.body
-    console.log(req.body);
-   
-    const {title,description,price} = req.body;
-    console.log("file is ",req.file);
 
+
+    const { title, description, price } = req.body;
 
 
     try {

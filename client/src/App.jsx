@@ -5,6 +5,7 @@ import AddMenueForm from "./components/AddMenueForm";
 
 import { Route, Routes } from "react-router-dom";
 import Cart from "./components/Cart";
+import AllItemsAdmin from "./components/AllItemsAdmin";
 
 import { useState } from "react";
 
@@ -27,6 +28,7 @@ function App() {
           }
         />
         <Route path="/form-add" element={<AddMenueForm />} />
+        <Route path="/admin-items" element={<AllItemsAdmin />}  />
       </Routes>
     </div>
   );
